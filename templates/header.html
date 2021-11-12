@@ -1,5 +1,12 @@
 <header class="header">
     <a href="{% url 'home' %}"><h1 class="logo"><span class="material-icons logo" style="font-size:4rem;">bug_report</span>Debug</h1></a>
+
+    <div>
+        <a href="{% url 'hunterapp:list' %}">헌터</a>
+        <a href="{% url 'requestapp:list' %}">의뢰인</a>
+    </div>
+
+
     <div style="top: 40px; right: 80px; position: absolute;">
         {% if not user.is_authenticated %}
       <a href="{% url 'userapp:login' %}?next={{ request.path }}">

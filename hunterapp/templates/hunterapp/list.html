@@ -3,11 +3,11 @@
 {% block content %}
 
 <div class="content center">
-    {% if request_list %}
+    {% if hunter_list %}
         <div class="container">
-            {% for request in request_list %}
+            {% for hunter in hunter_list %}
                 <div class="box">
-                    <a href="{% url 'requestapp:detail' pk=request.pk %}">{{ request.title }}</a>
+                    <a href="{% url 'hunterapp:detail' pk=hunter.pk %}">{{ hunter.title }}</a>
                 </div>
             {% endfor %}
         </div>
@@ -15,7 +15,7 @@
         <span class="logo">👀 조치원의 벌레 헌터를 찾고 있어요! 👀</span>
     {% endif %}
     <div class="content">
-        <a class="button add" href="{% url 'requestapp:create' %}">도움 요청하기</a>
+        <a class="button add" href="{% url 'hunterapp:create' %}">헌터 등록하기</a>
     </div>
 
 </div>

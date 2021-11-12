@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+    <h2>{{ target_hunter.title }}</h2>
+    <a href="#">{{ target_hunter.writer }}</a> | {{ target_hunter.created_at }}
+
+    <div class="menu">
+        <div class="info"><a href="{% url 'hunterapp:update' pk=target_hunter.pk %}">수정 </a><a href="{% url 'hunterapp:delete' pk=target_hunter.pk %}"> 삭제 </a></div>
+    </div>
+
+    <hr>
+
+    <div class="content">{{ target_hunter.content }}</div>
+    <img src="{{ target_hunter.img.url }}" alt="{{ target_hunter.title }}" style="width: 80%; border-radius: 1rem; margin: 2rem 0;">
+    <div class="content">
+        <a href="#" class="button">의뢰하기</a>
+    </div>
+
+</div>
+
+{% endblock %}

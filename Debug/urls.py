@@ -12,5 +12,6 @@ urlpatterns = [
     path('requests/', include('requestapp.urls')),
     path('settings/',include('settingapp.urls')),
     path('profile/', include('profileapp.urls')),
+    path('hunters/', include('hunterapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

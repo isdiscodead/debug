@@ -3,9 +3,9 @@
 {% block content %}
     <div class="center">
         <div class="content">
-            <h4>도움 요청하기</h4>
+            <h4>헌터 등록하기</h4>
             <hr>
-            <form action="{% url 'requestapp:create' %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'hunterapp:create' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <table style="margin: 0 auto;">
                     {{form.as_table}}

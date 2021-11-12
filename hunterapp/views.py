@@ -31,7 +31,7 @@ class HunterCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('requestapp:detail', kwargs={'pk': self.object.pk})
+        return reverse('hunterapp:detail', kwargs={'pk': self.object.pk})
 
 
 class HunterDetailView(DetailView):
