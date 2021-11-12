@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'userapp',
     'requestapp',
     'settingapp',
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'hunterapp',
     'allauth',
     'allauth.account',
-    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +144,5 @@ LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('userapp:login')
 
 SITE_ID = 1
+
+AUTH_USER_MODEL = 'auth.User'

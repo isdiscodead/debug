@@ -13,13 +13,6 @@ from django.views.generic import CreateView
 
 from userapp.forms import SignupForm, LoginForm
 
-
-class AccountCreateView(CreateView):
-    model = User
-    form_class = UserCreationForm
-    success_url = reverse_lazy('userapp:ok')  # 성공시 연결 url
-    template_name = 'userapp/create.html'
-
 def signup(request):
     if request.method == "POST":
         form = SignupForm(request.POST, request.FILES)
@@ -28,9 +21,7 @@ def signup(request):
             return redirect('userapp:login')
     else:
         form = SignupForm()
-    return render(request, 'userapp/signup.html', {'form': form}, )
-
-
+    return render(request, 'userapp/signup.html', {'form': form} )
 
 def login_check(request):
     if request.method == "POST":
@@ -38,7 +29,8 @@ def login_check(request):
         name = request.POST.get('username')
         pwd = request.POST.get('password')
 
-        user = authenticate(username = name, password = pwd)
+        print(name, pwd)
+        user = authenticate(username=name, password=pwd)
 
         if user is not None:
             login(request, user)
@@ -47,7 +39,8 @@ def login_check(request):
             return render(request, "userapp/login_fail_info.html")
     else:
         form = LoginForm()
-        return  render(request, 'userapp/login.html')
+        return render(request, 'userapp/login.html', {"form":form})
+
 def logout(request):
     django_logout(request)
     return redirect('/')
