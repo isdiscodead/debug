@@ -7,8 +7,13 @@
     <a href="#">{{ target_request.writer }}</a> | {{ target_request.created_at }}
 
     <div class="flex_box">
-        <div class="info">위치 | {{ target_request.location }}</div>
-        <div class="info">가격 | {{ target_request.start_price }} - {{ target_request.end_price }} 원</div>
+        <div>
+            <span class="info">위치 | {{ target_request.location }}</span>
+            <span class="info">가격 | {{ target_request.start_price }} - {{ target_request.end_price }} 원</span>
+        </div>
+        <div class="menu">
+            <div class="info"><a href="#">수정 </a><a href="#"> 삭제 </a></div>
+        </div>
     </div>
 
     <hr>
