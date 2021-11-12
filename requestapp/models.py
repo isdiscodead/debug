@@ -1,9 +1,11 @@
 from django.db import models
 
+from userapp.models import User
+
 
 class Quest(models.Model):
     title = models.CharField(max_length=50, null=False)
-    # writer = models.ForeignKey
+    writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='request', null=True)
     created_at = models.DateField(auto_now_add=True, null=True)
 
     img = models.ImageField(upload_to='request/', null=True)

@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 
-class Article(models.Model):
+class User(models.Model):
     nickname = models.CharField(max_length=20)
     # 젠더 정수필드, 0은 비공개, 1 : 남자, 2 : 여자, 2 이상 정수는 받지 못하게 조정
     gender = models.IntegerField(default=0,validators=[MinValueValidator(0),MaxValueValidator(2)])
