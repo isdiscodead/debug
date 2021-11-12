@@ -29,7 +29,6 @@ def login_check(request):
         name = request.POST.get('username')
         pwd = request.POST.get('password')
 
-        print(name, pwd)
         user = authenticate(username=name, password=pwd)
 
         if user is not None:
