@@ -17,8 +17,8 @@ class RequestListView(ListView):
     paginate_by = 8
 
 
-# @method_decorator(login_required, 'get')
-# @method_decorator(login_required, 'post')
+@method_decorator(login_required, 'get')
+@method_decorator(login_required, 'post')
 class RequestCreateView(CreateView):
     model = Quest
     context_object_name = 'target_request'
@@ -41,10 +41,10 @@ class RequestDetailView(DetailView):
     template_name = 'requestapp/detail.html'
 
 
-# @method_decorator(login_required, 'get')
-# @method_decorator(login_required, 'post')
-# @method_decorator(request_ownership_required, 'get')
-# @method_decorator(request_ownership_required, 'post')
+@method_decorator(login_required, 'get')
+@method_decorator(login_required, 'post')
+@method_decorator(request_ownership_required, 'get')
+@method_decorator(request_ownership_required, 'post')
 class RequestUpdateView(UpdateView):
     model = Quest
     context_object_name = 'target_request'
@@ -55,7 +55,8 @@ class RequestUpdateView(UpdateView):
         return reverse('requestapp:detail', kwargs={'pk': self.object.pk})
 
 
-# @login_required(login_url='/users/login/')
+@login_required(login_url='/users/login/')
+@request_ownership_required()
 def request_delete(request, pk):
     quest = Quest.objects.get(pk=pk)
     if quest.writer == request.user:
