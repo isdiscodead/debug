@@ -14,7 +14,5 @@ class Quest(models.Model):
     end_price = models.IntegerField(default=0)
     is_completed = models.BooleanField(default=False)
 
-
-
     def __str__(self):
-        title
+        return self.title
