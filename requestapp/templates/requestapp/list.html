@@ -13,5 +13,7 @@
     {% else %}
         <span class="logo">🐛 어라... 조치원의 벌레가 멸종된 걸까요? &nbsp;🐛</span>
     {% endif %}
+    <br>
+    <a class="button add" href="{% url 'requestapp:create' %}">도움 요청하기</a>
 </div>
 {% endblock %}

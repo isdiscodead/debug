@@ -9,3 +9,11 @@
 .logo{
     color: #84a84d;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
