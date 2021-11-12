@@ -1,8 +1,24 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
-{% block content %}
 
-{{ target_request.title }}
-{{ target_request.content }}
+{% block content %}
+<div class="center">
+    <h2>{{ target_request.title }}</h2>
+    <a href="#">{{ target_request.writer }}</a> | {{ target_request.created_at }}
+
+    <div class="flex_box">
+        <div class="info">위치 | {{ target_request.location }}</div>
+        <div class="info">가격 | {{ target_request.start_price }} - {{ target_request.end_price }} 원</div>
+    </div>
+
+    <hr>
+
+    <div class="content">{{ target_request.content }}</div>
+    <img>
+    <div class="content">
+        <a href="#" class="button">의뢰 수락하기</a>
+    </div>
+
+</div>
 
 {% endblock %}

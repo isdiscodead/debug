@@ -6,12 +6,29 @@
     text-align: center;
 }
 
+.left {
+    text-align: left;
+}
+
+.flex_box {
+    display: flex;
+}
+
+.info {
+    margin-left: 5rem;
+}
 .logo {
     color: #84a84d;
+    vertical-align: bottom;
 }
 
 .setting_logo{
     color: #d3d3d3;
+    vertical-align: middle;
+}
+
+form {
+    margin: auto 0;
 }
 
 a {
@@ -20,4 +37,16 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+.button {
+    padding: 1.5rem;
+    background-color: #84a84d;
+    border-radius: 2rem;
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    margin: 3rem;
 }
