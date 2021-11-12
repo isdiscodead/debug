@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'requestapp',
     'settingapp',
     'profileapp',
+    'hunterapp',
     'allauth',
     'allauth.account',
     'django.contrib.sites',
