@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.decorators import method_decorator
@@ -9,13 +10,9 @@ from requestapp.forms import QuestCreationForm
 from requestapp.models import Quest
 
 
-def home(request):
-    return render(request, 'requestapp/list.html')
-
-
 class RequestListView(ListView):
     model = Quest
-    context_object_name = 'request_List'
+    context_object_name = 'request_list'
     template_name = 'requestapp/list.html'
     paginate_by = 8
 
@@ -24,7 +21,7 @@ class RequestListView(ListView):
 # @method_decorator(login_required, 'post')
 class RequestCreateView(CreateView):
     model = Quest
-    context_object_name = 'target_article'
+    context_object_name = 'target_request'
     form_class = QuestCreationForm
     template_name = 'requestapp/create.html'
 
@@ -35,10 +32,10 @@ class RequestCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
+        return reverse('requestapp:detail', kwargs={'pk': self.object.pk})
 
 
-class ArticleDetailView(DetailView):
+class RequestDetailView(DetailView):
     model = Quest
     context_object_name = 'target_request'
     template_name = 'requestapp/detail.html'
@@ -58,14 +55,9 @@ class RequestUpdateView(UpdateView):
         return reverse('requestapp:detail', kwargs={'pk': self.object.pk})
 
 
-# @method_decorator(login_required, 'get')
-# @method_decorator(login_required, 'post')
-# @method_decorator(request_ownership_required, 'get')
-# @method_decorator(request_ownership_required, 'post')
-class RequestDeleteView(DeleteView):
-    model = Quest
-    context_object_name = "target_request"
-    template_name = 'requestapp/delete.html'
-
-    def get_success_url(self):
-        return reverse('requestapp:list')
+# @login_required(login_url='/users/login/')
+def request_delete(request, pk):
+    quest = Quest.objects.get(pk=pk)
+    if quest.writer == request.user:
+        quest.delete()
+        return HttpResponseRedirect(reverse('home'))

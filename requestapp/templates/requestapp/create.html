@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
     <div class="center">
         <div>
             <h4>도움 요청하기</h4>
             <hr>
-            <form action="{% url 'requestapp:create' %}" method="post" class="form-inline">
+            <form action="{% url 'requestapp:create' %}" method="post" enctype="multipart/form-data" class="form-inline">
                 {% csrf_token %}
                 <table>
                     {{form.as_table}}
