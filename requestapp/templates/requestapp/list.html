@@ -3,14 +3,13 @@
 {% block content %}
 
 <div class="content center">
-    {% if article_List %}
+    {% if request_list %}
         <div class="container">
             {% for request in request_list %}
                 <div class="box">
-                    <a href="#">{{ request.title }}</a>
+                    <a href="{% url 'requestapp:detail' pk=request.pk %}">{{ request.title }}</a>
                 </div>
             {% endfor %}
-
         </div>
     {% else %}
         <span class="logo">🐛 어라... 조치원의 벌레가 멸종된 걸까요? &nbsp;🐛</span>
