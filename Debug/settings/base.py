@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'requestapp',
     'settingapp',
     'bootstrap4',
+    'allauth',
+    'allauth.account',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
