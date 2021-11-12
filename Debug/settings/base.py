@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'userapp',
     'requestapp',
     'settingapp',
-    'bootstrap4',
+    'profileapp',
     'allauth',
     'allauth.account',
     'django.contrib.sites',
