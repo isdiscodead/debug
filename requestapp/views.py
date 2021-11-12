@@ -56,7 +56,7 @@ class RequestUpdateView(UpdateView):
 
 
 @login_required(login_url='/users/login/')
-# @request_ownership_required()
+@request_ownership_required
 def request_delete(request, pk):
     quest = Quest.objects.get(pk=pk)
     if quest.writer == request.user:

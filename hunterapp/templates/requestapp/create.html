@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="center">
+        <div class="content">
+            <h4>도움 요청하기</h4>
+            <hr>
+            <form action="{% url 'requestapp:create' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table style="margin: 0 auto;">
+                    {{form.as_table}}
+                </table>
+                <button type="submit" class="material-icons">add</button>
+                <button type="button" class="material-icons">cancel</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="center">
+        <div>
+            <h4>도움 글 수정하기</h4>
+            <hr>
+            <form action="{% url 'requestapp:update' pk=target_request.pk %}" method="post" class="form-inline">
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <button type="submit" class="material-icons">confirm</button>
+                <button type="button" class="material-icons">cancel</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
