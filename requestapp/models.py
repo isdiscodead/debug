@@ -1,9 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.timezone import now
 from pytz import timezone
-
 from Debug import settings
-from userapp.models import User
 
 
 class Quest(models.Model):

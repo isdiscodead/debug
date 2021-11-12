@@ -12,14 +12,14 @@
             <span class="info">가격 | {{ target_request.start_price }} - {{ target_request.end_price }} 원</span>
         </div>
         <div class="menu">
-            <div class="info"><a href="#">수정 </a><a href="#"> 삭제 </a></div>
+            <div class="info"><a href="{% url 'requestapp:update' pk=target_request.pk %}">수정 </a><a href="{% url 'requestapp:delete' pk=target_request.pk %}"> 삭제 </a></div>
         </div>
     </div>
 
     <hr>
 
     <div class="content">{{ target_request.content }}</div>
-    <img>
+    <img src="{{ target_request.img.url }}" alt="{{ target_request.title }}" style="width: 80%; border-radius: 1rem; margin: 2rem 0;">
     <div class="content">
         <a href="#" class="button">의뢰 수락하기</a>
     </div>
